@@ -1,0 +1,65 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table
+    [formGroup]="controlForm()"
+    class="w-full text-sm text-left rtl:text-right text-gray-500"
+  >
+    <thead class="text-xs text-gray-700 uppercase">
+      <tr>
+        <th
+          colspan="3"
+          class="py-1 text-lg font-normal text-black bg-[burlywood] text-center"
+        >
+          7. CONTROL DEL DOCUMENTO
+        </th>
+      </tr>
+      <tr class="bg-gray-200">
+        <th scope="col" class="px-6 py-3 text-center">Elaboró</th>
+        <th scope="col" class="px-6 py-3 text-center">Revisó</th>
+        <th scope="col" class="px-6 py-3 text-center">Aprobó</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="elaboro"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of puesto.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </th>
+        <td class="px-6 py-4">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="reviso"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of puesto.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="aprobo"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of puesto.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,542 @@
+<div
+  class="relative overflow-x-auto shadow-md sm:rounded-lg"
+  [formGroup]="competenciasForm()"
+>
+  <table
+    class="w-full text-sm text-left rtl:text-right text-gray-500"
+    formGroupName="proceso"
+  >
+    <thead>
+      <tr>
+        <th
+          colspan="3"
+          class="py-1 text-lg font-normal text-black bg-[burlywood] text-center"
+        >
+          5. COMPETENCIAS: Manufactura
+        </th>
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <tr class="border-b border-gray-200" formGroupName="proceso1">
+        <th
+          rowspan="12"
+          [width]="'20%'"
+          class="border-b border-gray-300 px-6 font-medium text-gray-900 bg-zinc-100"
+        >
+          5.1. Competencias específicas del proceso
+        </th>
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso2">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso3">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso4">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso5">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso6">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso7">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso8">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso9">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso10">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso11">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="proceso12">
+        <td class="px-6 py-1" [width]="'70%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of competencias3.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table
+    class="w-full text-sm text-left rtl:text-right text-gray-500"
+    formGroupName="comportamiento"
+  >
+    <tbody class="bg-white">
+      <tr class="border-b border-gray-200" formGroupName="comportamiento1">
+        <th
+          rowspan="3"
+          [width]="'20%'"
+          class="px-6 font-medium text-gray-900 bg-zinc-100"
+        >
+          5.2. Competencias Comportamentales
+        </th>
+        <td class="px-6 py-1" [width]="'30%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of comportamiento.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100" [width]="'10%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1" [width]="'30%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of comportamiento.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100" [width]="'10%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="comportamiento2">
+        <td class="px-6 py-1" [width]="'30%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of comportamiento.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100" [width]="'10%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1" [width]="'30%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of comportamiento.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100" [width]="'10%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr class="border-b border-gray-200" formGroupName="comportamiento3">
+        <td class="px-6 py-1" [width]="'30%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of comportamiento.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100" [width]="'10%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1" [width]="'30%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="name2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of comportamiento.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <td class="px-6 py-1 bg-zinc-100" [width]="'10%'">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="value2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of calificaciones.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

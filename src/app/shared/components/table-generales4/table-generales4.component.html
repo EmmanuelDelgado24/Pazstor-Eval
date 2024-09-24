@@ -1,0 +1,153 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table
+      class="w-full text-sm text-left rtl:text-right text-gray-500"
+      [formGroup]="generalesForm()"
+    >
+      <thead>
+        <tr>
+          <th
+            colspan="4"
+            class="py-1 text-lg font-normal text-black bg-[burlywood] text-center"
+          >
+            1. DATOS GENERALES
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <tr class="border-b border-gray-200">
+          <th scope="row" class="px-6 py-2 font-medium text-gray-900 bg-zinc-100">
+            Nombre del puesto
+          </th>
+          <td class="px-6 py-2">
+            <div class="max-w-sm mx-auto">
+              <select
+                formControlName="nombre_puesto"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+              >
+                <option value="" disabled selected>Selecciona una opción</option>
+                @for (item of puesto.values; track $index) {
+                <option [value]="item">{{ item }}</option>
+                }
+              </select>
+            </div>
+          </td>
+          <td class="px-6 py-2 bg-zinc-100"></td>
+          <td class="px-6 py-2"></td>
+        </tr>
+        <tr class="border-b border-gray-200" formGroupName="nivel_puesto">
+          <th scope="row" class="px-6 py-1 font-medium text-gray-900 bg-zinc-100">
+            Nivel del puesto
+          </th>
+          <td class="px-6 py-2">
+            <div class="max-w-sm mx-auto">
+              <select
+                formControlName="nivel"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+              >
+                <option value="" disabled selected>Selecciona una opción</option>
+                @for (item of jerarquia.values; track $index) {
+                <option [value]="item">{{ item }}</option>
+                }
+              </select>
+            </div>
+          </td>
+          <td class="px-6 py-2 bg-zinc-100">
+            <div class="max-w-sm mx-auto">
+              <select
+                formControlName="area"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+              >
+                <option value="" disabled selected>Selecciona una opción</option>
+                @for (item of area.values; track $index) {
+                <option [value]="item">{{ item }}</option>
+                }
+              </select>
+            </div>
+          </td>
+          <td class="px-6 py-2">CALIDAD</td>
+        </tr>
+        <tr class="border-b border-zinc-200">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 bg-zinc-100">
+            Puesto del jefe inmediato
+          </th>
+          <td class="px-6 py-2">
+            <div class="max-w-sm mx-auto">
+              <select
+                formControlName="puesto_jefe"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+              >
+                <option value="" disabled selected>Selecciona una opción</option>
+                @for (item of puesto.values; track $index) {
+                <option [value]="item">{{ item }}</option>
+                }
+              </select>
+            </div>
+          </td>
+          <td class="px-6 py-2 bg-zinc-100"></td>
+          <td class="px-6 py-2"></td>
+        </tr>
+        <tr class="border-b border-zinc-200" formGroupName="puesto_supervisa1">
+          <th rowspan="2" class="px-6 py-4 font-medium text-gray-900 bg-zinc-100">
+            Puesto(s) que supervisa de forma directa
+          </th>
+          <td class="px-6 py-2">
+            <div class="max-w-sm mx-auto">
+              <select
+                formControlName="puesto1"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+              >
+                <option value="" disabled selected>Selecciona una opción</option>
+                @for (item of puesto.values; track $index) {
+                <option [value]="item">{{ item }}</option>
+                }
+              </select>
+            </div>
+          </td>
+          <td class="px-6 py-2 bg-zinc-100">
+            <div class="max-w-sm mx-auto">
+              <select
+                formControlName="puesto2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+              >
+                <option value="" disabled selected>Selecciona una opción</option>
+                @for (item of puesto.values; track $index) {
+                <option [value]="item">{{ item }}</option>
+                }
+              </select>
+            </div>
+          </td>
+          <td class="px-6 py-2"></td>
+        </tr>
+        <tr class="border-b border-zinc-200" formGroupName="puesto_supervisa2">
+          <td class="px-6 py-2">
+            <div class="max-w-sm mx-auto">
+              <select
+                formControlName="puesto1"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+              >
+                <option value="" disabled selected>Selecciona una opción</option>
+                @for (item of puesto.values; track $index) {
+                <option [value]="item">{{ item }}</option>
+                }
+              </select>
+            </div>
+          </td>
+          <td class="px-6 py-2 bg-zinc-100">
+            <div class="max-w-sm mx-auto">
+              <select
+                formControlName="puesto2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+              >
+                <option value="" disabled selected>Selecciona una opción</option>
+                @for (item of puesto.values; track $index) {
+                <option [value]="item">{{ item }}</option>
+                }
+              </select>
+            </div>
+          </td>
+          <td class="px-6 py-2"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

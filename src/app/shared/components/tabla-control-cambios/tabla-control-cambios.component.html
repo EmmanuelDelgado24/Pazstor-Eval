@@ -1,0 +1,68 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table
+    [formGroup]="cambiosForm()"
+    class="w-full text-sm text-left rtl:text-right text-gray-500"
+  >
+    <thead class="text-xs text-gray-700 uppercase">
+      <tr>
+        <th
+          colspan="3"
+          class="py-1 text-lg font-normal text-black bg-[burlywood] text-center"
+        >
+          8. CONTROL DEL CAMBIOS
+        </th>
+      </tr>
+      <tr class="bg-gray-200">
+        <th scope="col" class="px-6 py-3 text-center">Fecha</th>
+        <th scope="col" class="px-6 py-3 text-center">N° Revisión</th>
+        <th scope="col" class="px-6 py-3 text-center">
+          Descripción del Cambio
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b">
+        <td class="px-6 py-4">
+          <input
+            id="date"
+            type="date"
+            formControlName="fecha"
+            class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-gray-800"
+          />
+        </td>
+        <td class="px-6 py-4">
+          <div class="relative z-0">
+            <input
+              type="text"
+              id="numero"
+              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              formControlName="numero"
+            />
+            <label
+              for="numero"
+              class="absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >N° Revisión</label
+            >
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <div class="relative z-0">
+            <input
+              type="text"
+              id="descripcion"
+              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              formControlName="descripcion"
+            />
+            <label
+              for="descripcion"
+              class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              >Descripción del Cambio</label
+            >
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

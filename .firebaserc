@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "pazstor": "pazstor-fd17f",
+    "default": "pazstor-fd17f"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

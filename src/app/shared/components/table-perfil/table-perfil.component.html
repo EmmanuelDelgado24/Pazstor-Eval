@@ -1,0 +1,99 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table
+    class="w-full text-sm text-left rtl:text-right text-gray-500"
+    [formGroup]="perfilForm()"
+  >
+    <thead class="text-xs text-gray-700 uppercase">
+      <tr>
+        <th
+          colspan="4"
+          class="py-1 text-lg font-normal text-black bg-[burlywood] text-center"
+        >
+          4. PERFIL DEL PUESTO
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b border-gray-200">
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50"
+        >
+          4.1. Nivel académico
+        </th>
+        <td class="px-6 py-4">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="academico"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of academico.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50"
+        >
+          4.2. Experiencia
+        </th>
+        <td class="px-6 py-4">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="experiencia"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of experiencia.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50"
+        >
+          4.3. Idiomas extranjeros
+        </th>
+        <td class="px-6 py-4">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="idiomas"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of idiomas.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50"
+        >
+          4.4. Licencia de manejo
+        </th>
+        <td class="px-6 py-4">
+          <div class="max-w-sm mx-auto">
+            <select
+              formControlName="licencia"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+            >
+              <option value="" disabled selected>Selecciona una opción</option>
+              @for (item of licencia.values; track $index) {
+              <option [value]="item">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
