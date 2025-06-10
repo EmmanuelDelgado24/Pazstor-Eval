@@ -30,6 +30,8 @@ import {
 } from '@angular/forms';
 import { TableMision2Component } from "../../shared/components/table-mision2/table-mision2.component";
 import { TableResponsabilidades2Component } from '../../shared/components/table-responsabilidades2/table-responsabilidades2.component';
+import { BotonCompetenciasComponent } from '../../shared/components/boton-actualizar/boton-actualizar.component';
+import { Boton2ActualizarComponent } from "../../shared/components/boton2-actualizar/boton2-actualizar.component";
 
 @Component({
   selector: 'app-produccion',
@@ -52,11 +54,14 @@ import { TableResponsabilidades2Component } from '../../shared/components/table-
     TableResponsabilidades2Component,
     TableGenerales2Component,
     TablaAutoridades2Component,
-  ],
+    BotonCompetenciasComponent,
+    Boton2ActualizarComponent
+],
   templateUrl: './produccion.component.html',
   styles: ``,
 })
 export class ProduccionComponent implements OnInit {
+  loading = signal(false);
   firebaseService = inject(FirebaseService);
   form: FormGroup;
   exito: WritableSignal<boolean>;

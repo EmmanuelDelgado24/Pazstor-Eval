@@ -1,173 +1,222 @@
 import { Routes } from '@angular/router';
-//import { FirebaseResolver } from './core/resolvers/firebase.service';
-import { FirebaseIngenieriaResolver, FirebaseProduccionResolver, FirebaseComprasResolver, FirebaseCalidadResolver, FirebaseDohResolver, FirebaseJFPResolver, FirebasePCPResolver } from './core/resolvers/firebase.service';
+import { authGuard } from './core/guards/auth.guard';
+import { 
+  FirebaseIngenieriaResolver, 
+  FirebaseProduccionResolver, 
+  FirebaseComprasResolver, 
+  FirebaseCalidadResolver, 
+  FirebaseDohResolver, 
+  FirebaseJFPResolver, 
+  FirebasePCPResolver 
+} from './core/resolvers/firebase.service';
 
 export const routes: Routes = [
-  //INGENIERIA
+  // Rutas públicas
   {
     path: '',
-    redirectTo: 'ingenieria',
-    pathMatch: 'full',
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
   {
-    path: 'ingenieria',
-    loadComponent: () =>
-      import('./pages/home/home.component').then((m) => m.HomeComponent),
-    title: 'Ingenieria',
+    path: 'login',
+    loadComponent: () => import('./shared/components/login/login.component')
+      .then(m => m.LoginComponent),
+    title: 'Login'
   },
-  {
-    path: 'estadisticas',
-    loadComponent: () =>
-      import('./pages/estadisticas/estadisticas.component').then(
-        (m) => m.EstadisticasComponent
-      ),
-    title: 'Estadisticas',
-    resolve: {
-      documents: FirebaseIngenieriaResolver,
-    },
-  },
-  //PRODUCCION
+
+  // Rutas protegidas
   {
     path: '',
-    redirectTo: 'produccion',
-    pathMatch: 'full',
+    canActivate: [authGuard],
+    children: [
+
+      // RUTA INGENIERÍA
+      {
+        path: 'ingenieria',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/home/home.component')
+              .then(m => m.HomeComponent),
+            title: 'Ingenieria'
+          },
+        ]
+      },
+      // RUTA ESTADISTICA INGENIERÍA
+      {
+        path: 'estadisticas',
+        children:[
+          {
+            path: '',
+            loadComponent: () => import('./pages/estadisticas/estadisticas.component')
+              .then(m => m.EstadisticasComponent),
+            title: 'Estadisticas',
+          resolve: { documents: FirebaseIngenieriaResolver }
+         },
+       ]
+      },
+  
+      // RUTA PRODUCCIÓN
+      {
+        path: 'produccion',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/produccion/produccion.component')
+              .then(m => m.ProduccionComponent),
+            title: 'Produccion'
+          },
+        ]
+      },
+      // RUTA ESTADISTICA PRODUCCIÓN
+      {
+        path: 'estadisticas2',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/estadisticas2/estadisticas2.component')
+              .then(m => m.Estadisticas2Component),
+            title: 'Estadisticas',
+            resolve: { documents: FirebaseProduccionResolver }
+          }
+        ]
+      },
+
+      // RUTA COMPRAS
+      {
+        path: 'compras',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/compras/compras.component')
+              .then(m => m.ComprasComponent),
+            title: 'Compras'
+          },
+        ]
+      },
+      // RUTA ESTADISTICA COMRAS
+      {
+        path: 'estadisticas3',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/estadisticas3/estadisticas3.component')
+              .then(m => m.Estadisticas3Component),
+            title: 'Estadisticas',
+            resolve: { documents: FirebaseComprasResolver }
+          },
+        ]
+      },
+
+      // RUTA CALIDAD
+      {
+        path: 'calidad',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/calidad/calidad.component')
+              .then(m => m.CalidadComponent),
+            title: 'Calidad'
+          },
+        ]
+      },
+      // RUTA ESTADISTICA CALIDAD
+      {
+        path: 'estadisticas4',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/estadisticas4/estadisticas4.component')
+              .then(m => m.Estadisticas4Component),
+            title: 'Estadisticas',
+            resolve: { documents: FirebaseCalidadResolver }
+          },
+        ]
+      },
+
+      // RUTA DOH
+      {
+        path: 'doh',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/doh/doh.component')
+              .then(m => m.DohComponent),
+            title: 'Doh'
+          },
+        ]
+      },
+      // RUTA ESTADISTICA DOH
+      {
+        path: 'estadisticas5',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/estadisticas5/estadisticas5.component')
+              .then(m => m.Estadisticas5Component),
+            title: 'Estadisticas',
+            resolve: { documents: FirebaseDohResolver }
+          },
+        ]
+      },
+
+      // RUTA JEFE DE PLANTA
+      {
+        path: 'planta',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/planta/planta.component')
+              .then(m => m.PlantaComponent),
+            title: 'Planta'
+          },
+        ]
+      },
+      // RUTA ESTADISTICAS JEFE DE PLANTA
+      {
+        path: 'estadisticas6',
+        children:[
+          {
+            path: '',
+            loadComponent: () => import('./pages/estadisticas6/estadisticas6.component')
+              .then(m => m.Estadisticas6Component),
+            title: 'Estadisticas',
+            resolve: { documents: FirebaseJFPResolver }
+          },
+        ]
+      },
+
+      // RUTA LIDER PCP
+      {
+        path: 'ppcp',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/ppcp/ppcp.component')
+              .then(m => m.PpcpComponent),
+            title: 'Ppcp'
+          },
+        ]
+      },
+      // RUTA ESTADISTICA LIDER PCP
+      {
+        path: 'estadisticas7',
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/estadisticas7/estadisticas7.component')
+              .then(m => m.Estadisticas7Component),
+            title: 'Estadisticas',
+            resolve: { documents: FirebasePCPResolver }
+          },
+        ]
+      },
+    ]
   },
+
+  // Ruta para manejar rutas no encontradas
   {
-    path: 'produccion',
-    loadComponent: () =>
-      import('./pages/produccion/produccion.component').then(
-        (m) => m.ProduccionComponent
-      ),
-    title: 'Produccion',
-  },
-  {
-    path: 'estadisticas2',
-    loadComponent: () =>
-      import('./pages/estadisticas2/estadisticas2.component').then(
-        (m) => m.Estadisticas2Component
-      ),
-    title: 'Estadisticas',
-    resolve: {
-      documents: FirebaseProduccionResolver,
-    },
-  },
-  //COMPRAS
-  {
-    path: '',
-    redirectTo: 'compras',
-    pathMatch: 'full',
-  },
-  {
-    path: 'compras',
-    loadComponent: () =>
-      import('./pages/compras/compras.component').then(
-        (m) => m.ComprasComponent
-      ),
-    title: 'Compras',
-  },
-  {
-    path: 'estadisticas3',
-    loadComponent: () =>
-      import('./pages/estadisticas3/estadisticas3.component').then(
-        (m) => m.Estadisticas3Component
-      ),
-    title: 'Estadisticas',
-    resolve: {
-      documents: FirebaseComprasResolver,
-    },
-  },
-  //CALIDAD
-  {
-    path: '',
-    redirectTo: 'calidad',
-    pathMatch: 'full',
-  },
-  {
-    path: 'calidad',
-    loadComponent: () =>
-      import('./pages/calidad/calidad.component').then(
-        (m) => m.CalidadComponent
-      ),
-    title: 'Calidad',
-  },
-  {
-    path: 'estadisticas4',
-    loadComponent: () =>
-      import('./pages/estadisticas4/estadisticas4.component').then(
-        (m) => m.Estadisticas4Component
-      ),
-    title: 'Estadisticas',
-    resolve: {
-      documents: FirebaseCalidadResolver,
-    },
-  },
-  //DOH
-  {
-    path: '',
-    redirectTo: 'doh',
-    pathMatch: 'full',
-  },
-  {
-    path: 'doh',
-    loadComponent: () =>
-      import('./pages/doh/doh.component').then((m) => m.DohComponent),
-    title: 'Doh',
-  },
-  {
-    path: 'estadisticas5',
-    loadComponent: () =>
-      import('./pages/estadisticas5/estadisticas5.component').then(
-        (m) => m.Estadisticas5Component
-      ),
-    title: 'Estadisticas',
-    resolve: {
-      documents: FirebaseDohResolver,
-    },
-  },
-  //JEFE DE PLANTA
-  {
-    path: '',
-    redirectTo: 'planta',
-    pathMatch: 'full',
-  },
-  {
-    path: 'planta',
-    loadComponent: () =>
-      import('./pages/planta/planta.component').then((m) => m.PlantaComponent),
-    title: 'Planta',
-  },
-  {
-    path: 'estadisticas6',
-    loadComponent: () =>
-      import('./pages/estadisticas6/estadisticas6.component').then(
-        (m) => m.Estadisticas6Component
-      ),
-    title: 'Estadisticas',
-    resolve: {
-      documents: FirebaseJFPResolver,
-    },
-  },
-  // LIDER PCP
-  {
-    path: '',
-    redirectTo: 'ppcp',
-    pathMatch: 'full',
-  },
-  {
-    path: 'ppcp',
-    loadComponent: () =>
-      import('./pages/ppcp/ppcp.component').then((m) => m.PpcpComponent),
-    title: 'Ppcp',
-  },
-  {
-    path: 'estadisticas7',
-    loadComponent: () =>
-      import('./pages/estadisticas7/estadisticas7.component').then(
-        (m) => m.Estadisticas7Component
-      ),
-    title: 'Estadisticas',
-    resolve: {
-      documents: FirebasePCPResolver,
-    },
-  },
+    path: '**',
+    redirectTo: 'login'
+  }
 ];

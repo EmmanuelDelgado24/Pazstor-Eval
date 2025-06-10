@@ -7,7 +7,7 @@
       Descripción del Puesto: Líder de Ingeniería
     </h1>
     <div class="my-4">
-      <app-table-generales [generalesForm]="generalesForm"/>
+      <app-table-generales [generalesForm]="generalesForm" />
     </div>
 
     <div class="my-4">
@@ -19,7 +19,7 @@
     </div>
 
     <div class="my-4">
-      <app-table-perfil [perfilForm]="perfilForm"/>
+      <app-table-perfil [perfilForm]="perfilForm" />
     </div>
 
     <div class="my-4">
@@ -31,14 +31,14 @@
     </div>
 
     <div class="my-4">
-      <app-tabla-control-documento [controlForm]="controlForm"/>
+      <app-tabla-control-documento [controlForm]="controlForm" />
     </div>
 
     <div class="my-4">
-      <app-tabla-control-cambios [cambiosForm]="cambiosForm"/>
+      <app-tabla-control-cambios [cambiosForm]="cambiosForm" />
     </div>
 
-    <div class="my-4 flex justify-center items-center gap-4">
+    <div class="flex items-center justify-center gap-4 my-4">
       <button
         type="submit"
         class="focus:outline-none text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 me-2 mb-2"
@@ -52,16 +52,11 @@
       >
         Restablecer
       </button>
-      <button
-        type="button"
-        (click)="onUpdate()"s
-        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-8 py-2.5 me-2 mb-2"
-        
-      >
-        Actualizar
-</button>
     </div>
+    
   </form>
+
+  <app-boton-competencias  />
 </app-layout>
 
 <router-outlet></router-outlet>

@@ -26,6 +26,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Boton4ActualizarComponent } from "../../shared/components/boton4-actualizar/boton4-actualizar.component";
 
 @Component({
   selector: 'app-calidad',
@@ -44,7 +45,8 @@ import {
     FooterComponent,
     ToastSuccesfullComponent,
     ReactiveFormsModule,
-  ],
+    Boton4ActualizarComponent
+],
   templateUrl: './calidad.component.html',
   styles: ``,
 })

@@ -26,6 +26,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Boton7ActualizarComponent } from "../../shared/components/boton7-actualizar/boton7-actualizar.component";
 
 @Component({
   selector: 'app-ppcp',
@@ -33,8 +34,7 @@ import {
   imports: [RouterOutlet, LayoutComponent, TableGenerales7Component, TableMision7Component,
     TableResponsabilidades7Component, TablePerfilComponent, TableCompetenciasComponent,
     TablaAutoridades7Component, TablaControlDocumentoComponent, TablaControlCambiosComponent,
-    FooterComponent, ToastSuccesfullComponent, ReactiveFormsModule
-  ],
+    FooterComponent, ToastSuccesfullComponent, ReactiveFormsModule, Boton7ActualizarComponent],
   templateUrl: './ppcp.component.html',
   styles: ``
 })

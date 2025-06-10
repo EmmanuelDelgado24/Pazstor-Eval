@@ -2,7 +2,6 @@ import {
   Component,
   inject,
   OnInit,
-  Signal,
   signal,
   WritableSignal,
 } from '@angular/core';
@@ -26,6 +25,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { BotonCompetenciasComponent } from '../../shared/components/boton-actualizar/boton-actualizar.component';
 
 @Component({
   selector: 'app-home',
@@ -44,10 +44,12 @@ import {
     RouterOutlet,
     ToastSuccesfullComponent,
     ReactiveFormsModule,
+    BotonCompetenciasComponent,
   ],
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
+  loading = signal(false);
   firebaseService = inject(FirebaseService);
   form: FormGroup;
   exito: WritableSignal<boolean>;
@@ -198,24 +200,6 @@ export class HomeComponent implements OnInit {
     const data = this.form.value;
     this.firebaseService
       .addData(data, 'ingenieria')
-      .then(() => {
-        this.exito.set(true);
-        setTimeout(() => {
-          this.exito.set(false);
-        }, 3000);
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => {
-        this.onReset();
-      });
-  }
-
-  onUpdate() {
-    const data = this.form.value;
-    this.firebaseService
-      .updateData(data, 'ingenieria')
       .then(() => {
         this.exito.set(true);
         setTimeout(() => {

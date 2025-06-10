@@ -5,12 +5,11 @@ import {
   ApexPlotOptions,
 } from 'ng-apexcharts';
 import { ChartOptions } from '../../../core/types';
-import { TablaControlCambiosComponent } from '../tabla-control-cambios/tabla-control-cambios.component';
 
 @Component({
   selector: 'app-tabla-grafico7',
   standalone: true,
-  imports: [NgApexchartsModule, TablaControlCambiosComponent],
+  imports: [NgApexchartsModule],
   templateUrl: './tabla-grafico7.component.html',
   styles: ``,
 })
@@ -19,78 +18,108 @@ export class TablaGrafico7Component implements OnInit {
   chartOptions: ChartOptions;
 
   getCharts(data: number[]): ApexAxisChartSeries {
+    // Inicializamos los arrays con 12 ceros (uno por mes)
     const calificaciones = {
-      Bueno: { name: 'Bueno', data: [0], color: '' },
-      Regular: { name: 'Regular', data: [0], color: '' },
-      Malo: { name: 'Malo', data: [0], color: '' },
+      Bueno: { name: 'Bueno', data: new Array(12).fill(null), color: '#06D001' },
+      Regular: { name: 'Regular', data: new Array(12).fill(null), color: '#F9E400' },
+      Malo: { name: 'Malo', data: new Array(12).fill(null), color: '#FF0000' },
     };
 
-    data.forEach((value) => {
+    // Procesamos cada valor en su posición correspondiente del mes
+    data.forEach((value, index) => {
       const valueInteger = Math.floor(value);
-      if (valueInteger >= 95) {
-        calificaciones.Bueno.data.push(valueInteger);
-        calificaciones.Bueno.color = '#06D001';
-      } else if (valueInteger >= 90) {
-        calificaciones.Regular.data.push(valueInteger);
-        calificaciones.Regular.color = '#F9E400';
-      } else if (valueInteger <= 85) {
-        calificaciones.Malo.data.push(valueInteger);
-        calificaciones.Malo.color = '#FF0000';
+      
+      // Solo procesamos si el índice está dentro del rango de meses (0-11)
+      if (index < 12) {
+        if (valueInteger >= 95) {
+          calificaciones.Bueno.data[index] = valueInteger;
+          calificaciones.Regular.data[index] = null;
+          calificaciones.Malo.data[index] = null;
+        } else if (valueInteger >= 90) {
+          calificaciones.Bueno.data[index] = null;
+          calificaciones.Regular.data[index] = valueInteger;
+          calificaciones.Malo.data[index] = null;
+        } else {
+          calificaciones.Bueno.data[index] = null;
+          calificaciones.Regular.data[index] = null;
+          calificaciones.Malo.data[index] = valueInteger;
+        }
       }
     });
 
-    return Object.values(calificaciones).map((value) => ({
-      name: value.name,
-      data: value.data,
-      color: value.color,
-    }));
+    return Object.values(calificaciones);
   }
 
   ngOnInit(): void {
     if (this.data.length > 0) {
       this.chartOptions.series = this.getCharts(this.data);
     } else {
-      this.chartOptions.series[0].data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      this.chartOptions.series = [{
+        name: 'Sin datos',
+        data: [],
+        color: '#cccccc'
+      }];
     }
   }
 
   constructor() {
     this.chartOptions = {
-      series: [
-        {
-          name: '2024',
-          data: [],
-        },
-      ],
+      series: [],
       chart: {
         height: 450,
-        type: 'area',
+        type: 'bar',
+        animations: {
+          enabled: true,
+          easing: 'easeinout',
+          speed: 800,
+          dynamicAnimation: {
+            enabled: true,
+            speed: 350,
+          },
+        },
       },
       plotOptions: {
         bar: {
-          horizontal: true,
+          horizontal: false,
+          dataLabels: {
+            position: 'top',
+          },
         },
       },
       title: {
         text: 'Calificación',
+        align: 'center',
+        style: {
+          fontSize: '16px',
+          fontWeight: 'bold',
+        },
       },
       xaxis: {
         categories: [
-          // 'Ene',
-          // 'Feb',
-          // 'Mar',
-          // 'Abr',
-          // 'May',
-          // 'Jun',
-          'Jul',
-          'Ago',
-          'Sep',
-          'Oct',
-          'Nov',
-          'Dic',
+          'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+          'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'
         ],
         title: {
-          text: 'Indicadores',
+          text: 'Meses',
+          style: {
+            fontSize: '14px',
+            fontWeight: 'normal',
+          },
+        },
+        labels: {
+          style: {
+            fontSize: '12px',
+          },
+        },
+      },
+      yaxis: {
+        max: 100,
+        title: {
+          text: 'Porcentaje',
+          style: {
+            fontSize: '14px',
+            fontWeight: 'normal',
+          },
         },
       },
     };

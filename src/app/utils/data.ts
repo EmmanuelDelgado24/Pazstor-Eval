@@ -1,6 +1,4 @@
-import { IData } from '../core/types/index';
-import { IData2 } from '../core/types/index';
-
+import {IData, IData2 } from '../core/types/index';
 
 ///////  GERENTE DE INGENIERÍA /////// 
 
@@ -87,7 +85,7 @@ const Jerarquia: IData = {
 const Area: IData = {
   id: 1,
   name: 'Proceso',
-  values: ['Area', 'Departamento', 'Sector', 'Proceso'],
+  values: ['Área', 'Departamento', 'Sector', 'Proceso'],
 };
 
 const Academico: IData = {
@@ -195,15 +193,14 @@ const Comportamientos: IData = {
   ],
 };
 
-const Calificaciones: IData = {
+const Calificaciones: IData2 = {
   id: 5,
   name: 'Calificaciones',
   values: ['1', '3', '5'],
-  fecha : 'dd-mm-yyyy',
 };
 
 
-///////  GERENTE DE PRODUCCIÓN /////// 
+///////  PRODUCCIÓN /////// 
 
 const Competencias2: IData2 = { 
   id: 5,
@@ -235,6 +232,8 @@ const Competencias2: IData2 = {
   ],
 }
 
+///////  COMPRAS /////// 
+
 const Competencias3: IData2 = { 
   id: 5,
   name: 'Competencias específicas del proceso',
@@ -244,11 +243,11 @@ const Competencias3: IData2 = {
     'Sistema de gestión de la calidad',
     'Los materiales para la fabricación de los productos',
     'Pruebas físicas de los materiales utilizados en la fabricación del calzado',
-    'Manejo de prductos peligrosos',
+    'Manejo de productos peligrosos',
     'Cálculo de consumos de los materiales directos e indirectos',
     'Habilidad en el manejo de ERP',
     'Planeación, programación y control de la producción',
-    'Conoccimiento de la proveeduría del seguimiento cuero calzado',
+    'Conocimiento de la proveeduría del seguimiento cuero calzado',
     'Habilidad para negociación con proveedores',
     'Administracion de inventarios de MP',
     'Eliminación de los 7 desperdicios de la manufactura',
@@ -258,6 +257,7 @@ const Competencias3: IData2 = {
   ],
 }
 
+///////  CALIDAD /////// 
 
 const Competencias4: IData2 = { 
   id: 5,
@@ -281,6 +281,8 @@ const Competencias4: IData2 = {
     'Impartir capacitación a los trabajadores en los procesos de fabricación',
   ],
 }
+
+/////// DOH /////// 
 
 const Competencias5: IData2 = { 
   id: 5,

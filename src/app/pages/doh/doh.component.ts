@@ -26,14 +26,16 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { BotonCompetenciasComponent } from "../../shared/components/boton-actualizar/boton-actualizar.component";
+import { Boton5ActualizarComponent } from "../../shared/components/boton5-actualizar/boton5-actualizar.component";
 
 @Component({
   selector: 'app-doh',
   standalone: true,
-  imports: [RouterOutlet, LayoutComponent, FooterComponent, ReactiveFormsModule, 
-    ToastSuccesfullComponent, TableGenerales5Component, TableMision5Component, 
+  imports: [RouterOutlet, LayoutComponent, FooterComponent, ReactiveFormsModule,
+    ToastSuccesfullComponent, TableGenerales5Component, TableMision5Component,
     TableResponsabilidades5Component, TablePerfilComponent, TableCompetencias5Component,
-    TablaAutoridades5Component, TablaControlDocumentoComponent, TablaControlCambiosComponent],
+    TablaAutoridades5Component, TablaControlDocumentoComponent, TablaControlCambiosComponent, BotonCompetenciasComponent, Boton5ActualizarComponent],
   templateUrl: './doh.component.html',
   styles: ``
 })
@@ -187,7 +189,7 @@ export class DohComponent {
   onSubmit() {
     const data = this.form.value;
     this.firebaseService
-      .addData(data, 'rh')
+      .addData(data, 'doh')
       .then(() => {
         this.exito.set(true);
         setTimeout(() => {

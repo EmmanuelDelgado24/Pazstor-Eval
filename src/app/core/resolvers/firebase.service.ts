@@ -2,14 +2,6 @@ import { ResolveFn } from '@angular/router';
 import { inject } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 
-//export const FirebaseResolver: ResolveFn<any[]> = () => {
-//  return inject(FirebaseService).getData('ingenieria');
-//};
-
-//export const FirebaseResolver: (collectionName: string) => ResolveFn<any[]> = (collectionName) => {
-//  return () => inject(FirebaseService).getData(collectionName);
-//};
-
 export const FirebaseIngenieriaResolver: ResolveFn<any[]> = () => {
   return inject(FirebaseService).getData('ingenieria');
 };
@@ -35,7 +27,5 @@ export const FirebaseJFPResolver: ResolveFn<any[]> = () => {
 };
 
 export const FirebasePCPResolver: ResolveFn<any[]> = () => {
-  return inject(FirebaseService).getData('ppcp');
+  return inject(FirebaseService).getData('pcp');
 };
-
-

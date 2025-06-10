@@ -3,71 +3,57 @@ import { initFlowbite } from 'flowbite';
 import { LayoutComponent } from '../../shared/layouts/layout/layout.component';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { AsyncPipe, JsonPipe } from '@angular/common';
 import { TablaGraficoComponent } from '../../shared/components/tabla-grafico/tabla-grafico.component';
-import { TablaGrafico2Component } from "../../shared/components/tabla-grafico2/tabla-grafico2.component";
-import { TablaGrafico3Component } from "../../shared/components/tabla-grafico3/tabla-grafico3.component";
-import { TablaGrafico4Component } from "../../shared/components/tabla-grafico4/tabla-grafico4.component";
-import { TablaGrafico5Component } from "../../shared/components/tabla-grafico5/tabla-grafico5.component";
-import { TablaGrafico6Component } from "../../shared/components/tabla-grafico6/tabla-grafico6.component";
-import { TablaGrafico7Component } from "../../shared/components/tabla-grafico7/tabla-grafico7.component";
-import { Estadisticas2Component } from '../estadisticas2/estadisticas2.component';
-import { Estadisticas3Component } from "../estadisticas3/estadisticas3.component";
-import { Estadisticas4Component } from "../estadisticas4/estadisticas4.component";
-import { Estadisticas5Component } from "../estadisticas5/estadisticas5.component";
-import { Estadisticas7Component } from "../estadisticas7/estadisticas7.component";
-import { Estadisticas6Component } from "../estadisticas6/estadisticas6.component";
+import { CompetenciaData } from '../../core/types';
 
 @Component({
   selector: 'app-estadisticas',
   standalone: true,
-  imports: [
-    LayoutComponent,
-    RouterOutlet,
-    AsyncPipe,
-    JsonPipe,
-    TablaGraficoComponent,
-    TablaGrafico2Component,
-    TablaGrafico3Component,
-    TablaGrafico4Component,
-    TablaGrafico5Component,
-    TablaGrafico6Component,
-    TablaGrafico7Component,
-    Estadisticas2Component,
-    Estadisticas3Component,
-    Estadisticas4Component,
-    Estadisticas5Component,
-    Estadisticas7Component,
-    Estadisticas6Component,
-],
+  imports: [LayoutComponent, RouterOutlet, TablaGraficoComponent],
   templateUrl: './estadisticas.component.html',
 })
 export class EstadisticasComponent implements OnInit {
-  data$!: Observable<any[]>;
+  data$!: Observable<CompetenciaData[]>;
   private activeRoute = inject(ActivatedRoute);
-  private datos: any[] = [];
-  promedios: number[] = [];
+  private datos: CompetenciaData[] = [];
+  promedios: number[] = new Array(12).fill(null);
   isLoading = signal<boolean>(true);
 
   ngOnInit(): void {
     initFlowbite();
 
     this.data$ = this.activeRoute.data.pipe(
-      map((data) => data['documents'] as any[])
+      map((data) => data['documents'] as CompetenciaData[])
     );
 
     this.data$.subscribe((data) => {
+      //console.log('Datos recibidos de Firebase:', data);
       this.datos = data;
+      console.log('Datos asignados a this.datos:', JSON.stringify(this.datos, null, 2));
       this.utilizarDatos(this.datos);
       this.isLoading.set(false);
     });
   }
 
-  utilizarDatos(datos: any[]): void {
+  utilizarDatos(datos: CompetenciaData[]): void {
+    // Limpiamos el array de promedios
+    this.promedios = new Array(12).fill(null);
+    //console.log('Datos a procesar:', datos);
+
     datos.forEach((dato) => {
-      const competencias = dato.competencias;
-      const promedio = this.calcularPromedio(competencias);
-      this.promedios.push(promedio);
+      // Tomamos la fecha del primer proceso como referencia
+      const fechaRef = dato.cambios.fecha;
+      //console.log('Fecha encontrada:', fechaRef);
+      if (fechaRef) {
+        const fecha = new Date(fechaRef); // Ya que viene en formato "YYYY-MM-DD"
+        const mes = fecha.getMonth();
+        const promedio = this.calcularPromedio(dato.competencias);
+
+        // Solo asignamos si no hay un valor previo para ese mes
+        if (this.promedios[mes] === null) {
+          this.promedios[mes] = promedio;
+        }
+      }
     });
   }
 
@@ -75,20 +61,19 @@ export class EstadisticasComponent implements OnInit {
     let suma = 0;
     let count = 0;
 
-    // Recorrer competencias de proceso
-    for (const key in competencias.proceso) {
-      const competencia = competencias.proceso[key];
-      const value = parseInt(competencia.value);
+    // Procesar competencias de proceso
+    Object.values(competencias.proceso).forEach((proceso) => {
+      const value = parseInt((proceso as any).value);
       if (!isNaN(value)) {
         suma += value;
         count++;
       }
-    }
+    });
 
-    for (const key in competencias.comportamiento) {
-      const competencia = competencias.comportamiento[key];
-      const value1 = parseInt(competencia.value);
-      const value2 = parseInt(competencia.value2);
+    // Procesar competencias de comportamiento
+    Object.values(competencias.comportamiento).forEach((comp) => {
+      const value1 = parseInt((comp as any).value);
+      const value2 = parseInt((comp as any).value2);
 
       if (!isNaN(value1)) {
         suma += value1;
@@ -98,9 +83,7 @@ export class EstadisticasComponent implements OnInit {
         suma += value2;
         count++;
       }
-    }
-
-    //return count === 0 ? 0 : suma / count;
+    });
     return (suma / 90) * 100;
   }
 }

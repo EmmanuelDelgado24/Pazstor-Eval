@@ -26,14 +26,15 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Boton6ActualizarComponent } from "../../shared/components/boton6-actualizar/boton6-actualizar.component";
 
 @Component({
   selector: 'app-planta',
   standalone: true,
-  imports: [RouterOutlet, LayoutComponent, TableGenerales6Component, TableMision6Component, 
-    TableResponsabilidades6Component, TablePerfilComponent, TableCompetencias6Component, 
+  imports: [RouterOutlet, LayoutComponent, TableGenerales6Component, TableMision6Component,
+    TableResponsabilidades6Component, TablePerfilComponent, TableCompetencias6Component,
     TablaAutoridades6Component, TablaControlDocumentoComponent, TablaControlCambiosComponent,
-     FooterComponent, ToastSuccesfullComponent, ReactiveFormsModule],
+    FooterComponent, ToastSuccesfullComponent, ReactiveFormsModule, Boton6ActualizarComponent],
   templateUrl: './planta.component.html',
   styles: ``
 })
@@ -200,6 +201,12 @@ export class PlantaComponent {
       .finally(() => {
         this.onReset();
       });
+  }
+
+  onUpdate(){
+    const data = this.form.value
+    this.firebaseService
+    //.updateData('planta', )
   }
 
   ngOnInit(): void {

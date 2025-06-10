@@ -1,0 +1,1316 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <app-pdf-reporte [datos]="datos"></app-pdf-reporte>
+  <table
+    class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400"
+  >
+    <caption
+      class="p-5 text-lg font-semibold text-left text-white bg-neutral-500 rtl:text-right dark:bg-neutral-500"
+    >
+      PAZSTOR
+      <p class="mt-1 text-sm font-normal text-white-500 dark:text-white-400">
+        Tabla de Registros.
+      </p>
+    </caption>
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <!-- Datos Generales -->
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">Fecha Cambio</th>
+        <th scope="col" class="px-6 py-3">Descripción</th>
+        <th scope="col" class="px-6 py-3">Número</th>
+        <th scope="col" class="px-6 py-3">Nombre del puesto</th>
+        <th scope="col" class="px-6 py-3">Nivel del puesto</th>
+        <th scope="col" class="px-6 py-3">Ingeniería</th>
+        <th scope="col" class="px-6 py-3">Puesto del jefe inmediato</th>
+        <th scope="col" class="px-6 py-3">Puesto supervisa 1</th>
+        <th scope="col" class="px-6 py-3">Puesto supervisa 2</th>
+        <th scope="col" class="px-6 py-3">Puesto supervisa 3</th>
+        <th scope="col" class="px-6 py-3">Puesto supervisa 4</th>
+
+        <!-- Perfil -->
+        <th scope="col" class="px-6 py-3">Nivel académico</th>
+        <th scope="col" class="px-6 py-3">Experiencia</th>
+        <th scope="col" class="px-6 py-3">Idiomas extranjeros</th>
+        <th scope="col" class="px-6 py-3">Licencia de manejo</th>
+
+        <!-- Competencias Comportamiento -->
+        <th scope="col" class="px-6 py-3">Comportamiento 1 Nombre</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 1 Valor</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 2 Nombre</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 2 Valor</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 3 Nombre</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 3 Valor</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 4 Nombre</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 4 Valor</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 5 Nombre</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 5 Valor</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 6 Nombre</th>
+        <th scope="col" class="px-6 py-3">Comportamiento 6 Valor</th>
+
+        <!-- Proceso -->
+
+        <th scope="col" class="px-6 py-3">Proceso 1 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 1 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 2 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 2 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 3 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 3 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 4 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 4 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 5 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 5 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 6 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 6 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 7 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 7 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 8 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 8 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 9 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 9 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 10 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 10 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 11 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 11 Valor</th>
+        <th scope="col" class="px-6 py-3">Proceso 12 Nombre</th>
+        <th scope="col" class="px-6 py-3">Proceso 12 Valor</th>
+
+        <!-- Control -->
+        <th scope="col" class="px-6 py-3">Elaboró</th>
+        <th scope="col" class="px-6 py-3">Revisó</th>
+        <th scope="col" class="px-6 py-3">Aprobó</th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Acciones</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of datos(); track item.id) {
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <!-- Datos Generales -->
+        <td class="px-6 py-4">{{ item.id }}</td>
+        <td class="px-6 py-4">{{ item.cambios.fecha || "No disponible" }}</td>
+        <td class="px-6 py-4">
+          {{ item.cambios.descripcion || "No disponible" }}
+        </td>
+        <td class="px-6 py-4">{{ item.cambios.numero || "No disponible" }}</td>
+        <td class="px-6 py-4">
+          {{ item.generales.nombre_puesto || "Sin asignar" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.generales.nivel_puesto.nivel || "Sin asignar" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.generales.nivel_puesto.area || "Sin asignar" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.generales.puesto_jefe || "Sin asignar" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.generales.puesto_supervisa1.puesto1 || "Sin asignar" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.generales.puesto_supervisa1.puesto2 || "Sin asignar" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.generales.puesto_supervisa2.puesto1 || "Sin asignar" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.generales.puesto_supervisa2.puesto2 || "Sin asignar" }}
+        </td>
+
+        <!-- Perfil -->
+        <td class="px-6 py-4">
+          {{ item.perfil.academico || "No disponible" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.perfil.experiencia || "No disponible" }}
+        </td>
+        <td class="px-6 py-4">{{ item.perfil.idiomas || "No disponible" }}</td>
+        <td class="px-6 py-4">{{ item.perfil.licencia || "No disponible" }}</td>
+
+        <!-- Competencias -->
+        <td class="px-6 py-4">
+          {{
+            item.competencias.comportamiento.comportamiento1.name ||
+              "No disponible"
+          }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.comportamiento.comportamiento1.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{
+            item.competencias.comportamiento.comportamiento1.name2 ||
+              "No disponible"
+          }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.comportamiento.comportamiento1.value2 || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{
+            item.competencias.comportamiento.comportamiento2.name ||
+              "No disponible"
+          }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.comportamiento.comportamiento2.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{
+            item.competencias.comportamiento.comportamiento2.name2 ||
+              "No disponible"
+          }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.comportamiento.comportamiento2.value2 || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{
+            item.competencias.comportamiento.comportamiento3.name ||
+              "No disponible"
+          }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.comportamiento.comportamiento3.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{
+            item.competencias.comportamiento.comportamiento3.name2 ||
+              "No disponible"
+          }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.comportamiento.comportamiento3.value2 || "N/A" }}
+        </td>
+
+        <!-- Proceso -->
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso1.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso1.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso2.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso2.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso3.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso3.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso4.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso4.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso5.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso5.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso6.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso6.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso7.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso7.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso8.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso8.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso9.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso9.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso10.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso10.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso11.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso11.value || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso12.name || "N/A" }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.competencias.proceso.proceso12.value || "N/A" }}
+        </td>
+
+        <!-- Control -->
+        <td class="px-6 py-4">{{ item.control.elaboro || "No disponible" }}</td>
+        <td class="px-6 py-4">{{ item.control.reviso || "No disponible" }}</td>
+        <td class="px-6 py-4">{{ item.control.aprobo || "No disponible" }}</td>
+        <div class="flex justify-end gap-2"></div>
+
+        <td class="px-6 py-4 text-right">
+          <div class="flex justify-end gap-2">
+            <button
+              (click)="editItem(item)"
+              class="px-3 py-1 text-sm font-medium text-white transition-colors bg-yellow-500 rounded hover:bg-yellow-700"
+            >
+              Actualizar
+            </button>
+
+            <button
+              (click)="onEliminarRegistro(item)"
+              class="px-3 py-1 text-sm font-medium text-white transition-colors bg-red-500 rounded hover:bg-red-700"
+            >
+              Eliminar
+            </button>
+          </div>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal usando el nuevo control flow -->
+@if (showModal()) {
+<div
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+>
+  <div class="p-6 bg-white rounded-lg w-[800px]">
+    <!-- Aumentado el ancho para más campos -->
+    <h2 class="mb-4 text-xl font-bold">Editar Registro</h2>
+
+    <form (submit)="saveItem($event)" class="overflow-y-auto max-h-96">
+      <!-- Datos Generales -->
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Nombre del puesto</label>
+        <select
+          [ngModel]="formData().generales.nombre_puesto"
+          (ngModelChange)="updateFormField('generales.nombre_puesto', $event)"
+          name="nombre_puesto"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of puesto.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Nivel del puesto</label>
+        <select
+          [ngModel]="formData().generales.nivel_puesto.nivel"
+          (ngModelChange)="
+            updateFormField('generales.nivel_puesto.nivel', $event)
+          "
+          name="nivel_puesto"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of jerarquia.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">INGENIERÍA</label>
+        <select
+          [ngModel]="formData().generales.nivel_puesto.area"
+          (ngModelChange)="
+            updateFormField('generales.nivel_puesto.area', $event)
+          "
+          name="nivel_puesto.area"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of area.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Puesto del jefe inmediato</label
+        >
+        <select
+          [ngModel]="formData().generales.puesto_jefe"
+          (ngModelChange)="updateFormField('generales.puesto_jefe', $event)"
+          name="puesto_jefe"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of puesto.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Puesto(s) que supervisa de forma directa</label
+        >
+        <select
+          [ngModel]="formData().generales.puesto_supervisa1.puesto1"
+          (ngModelChange)="
+            updateFormField('generales.puesto_supervisa1.puesto1', $event)
+          "
+          name="puesto_supervisa1"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of puesto.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Puesto(s) que supervisa de forma directa 2</label
+        >
+        <select
+          [ngModel]="formData().generales.puesto_supervisa1.puesto2"
+          (ngModelChange)="
+            updateFormField('generales.puesto_supervisa1.puesto2', $event)
+          "
+          name="puesto_supervisa1"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of puesto.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Puesto(s) que supervisa de forma directa 3</label
+        >
+        <select
+          [ngModel]="formData().generales.puesto_supervisa2.puesto1"
+          (ngModelChange)="
+            updateFormField('generales.puesto_supervisa2.puesto1', $event)
+          "
+          name="puesto_supervisa2"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of puesto.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Puesto(s) que supervisa de forma directa 4</label
+        >
+        <select
+          [ngModel]="formData().generales.puesto_supervisa2.puesto2"
+          (ngModelChange)="
+            updateFormField('generales.puesto_supervisa2.puesto2', $event)
+          "
+          name="puesto_supervisa2"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of puesto.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Datos Perfil -->
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Nivel académico</label>
+        <select
+          [ngModel]="formData().perfil.academico"
+          (ngModelChange)="updateFormField('perfil.academico', $event)"
+          name="academico"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of academico.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Experiencia</label>
+        <select
+          [ngModel]="formData().perfil.experiencia"
+          (ngModelChange)="updateFormField('perfil.experiencia', $event)"
+          name="experiencia"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of experiencia.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Nivel académico</label>
+        <select
+          [ngModel]="formData().perfil.idiomas"
+          (ngModelChange)="updateFormField('perfil.idiomas', $event)"
+          name="idiomas"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of idiomas.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Licencia de manejo</label>
+        <select
+          [ngModel]="formData().perfil.licencia"
+          (ngModelChange)="updateFormField('perfil.licencia', $event)"
+          name="licencia"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of licencia.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Datos Competencia Proceso -->
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 1</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso1.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso1', $event)
+          "
+          name="proceso1"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 1</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso1.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso1', $event)
+          "
+          name="calificacion1"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 2</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso2.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso2', $event)
+          "
+          name="proceso2"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 2</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso2.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso2', $event)
+          "
+          name="calificacion2"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 3</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso3.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso3', $event)
+          "
+          name="proceso3"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 3</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso3.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso3', $event)
+          "
+          name="calificacion3"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 4</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso4.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso4', $event)
+          "
+          name="proceso4"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 4</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso4.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso4', $event)
+          "
+          name="calificacion4"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 5</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso5.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso5', $event)
+          "
+          name="proceso5"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 5</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso5.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso5', $event)
+          "
+          name="calificacion5"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 6</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso6.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso6', $event)
+          "
+          name="proceso6"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 6</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso6.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso6', $event)
+          "
+          name="calificacion6"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 7</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso7.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso7', $event)
+          "
+          name="proceso7"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 7</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso7.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso7', $event)
+          "
+          name="calificacion7"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 8</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso8.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso8', $event)
+          "
+          name="proceso8"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 8</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso8.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso8', $event)
+          "
+          name="calificacion8"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 9</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso9.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso9', $event)
+          "
+          name="proceso9"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 9</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso9.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso9', $event)
+          "
+          name="calificacion9"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 10</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso10.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso10', $event)
+          "
+          name="proceso10"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 10</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso10.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso10', $event)
+          "
+          name="calificacion10"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 11</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso11.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso11', $event)
+          "
+          name="proceso11"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 11</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso11.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso11', $event)
+          "
+          name="calificacion11"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium"
+          >Competencia de Proceso 12</label
+        >
+        <select
+          [ngModel]="formData().competencias.proceso.proceso12.name"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso12', $event)
+          "
+          name="proceso12"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of competencias.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 12</label>
+        <select
+          [ngModel]="formData().competencias.proceso.proceso12.value"
+          (ngModelChange)="
+            updateFormField('competencias.proceso.proceso12', $event)
+          "
+          name="calificacion12"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Datos Competencia Comportamentales -->
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Comportamentales 1</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento1.name
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento1',
+              $event
+            )
+          "
+          name="comportamiento1"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of comportamientos.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 1</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento1.value
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento1',
+              $event
+            )
+          "
+          name="calificacion1"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Comportamentales 2</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento1.name2
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento1',
+              $event
+            )
+          "
+          name="comportamiento1"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of comportamientos.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 2</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento1.value2
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento1',
+              $event
+            )
+          "
+          name="calificacion1"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Comportamentales 3</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento2.name
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento2',
+              $event
+            )
+          "
+          name="comportamiento2"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of comportamientos.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 3</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento2.value
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento2',
+              $event
+            )
+          "
+          name="calificacion2"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Comportamentales 4</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento2.name2
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento2',
+              $event
+            )
+          "
+          name="comportamiento2"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of comportamientos.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 4</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento2.value2
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento2',
+              $event
+            )
+          "
+          name="calificacion2"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Comportamentales 5</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento3.name
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento3',
+              $event
+            )
+          "
+          name="comportamiento3"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of comportamientos.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 5</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento3.value
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento3',
+              $event
+            )
+          "
+          name="calificacion3"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Comportamentales 6</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento3.name2
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento3',
+              $event
+            )
+          "
+          name="comportamiento3"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of comportamientos.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Calificación 6</label>
+        <select
+          [ngModel]="
+            formData().competencias.comportamiento.comportamiento3.value2
+          "
+          (ngModelChange)="
+            updateFormField(
+              'competencias.comportamiento.comportamiento3',
+              $event
+            )
+          "
+          name="calificacion3"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of calificaciones.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Datos Control del Documento -->
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Elaboró</label>
+        <select
+          [ngModel]="formData().control.elaboro"
+          (ngModelChange)="updateFormField('control.elaboro', $event)"
+          name="elaboro"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of puesto.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Revisó</label>
+        <select
+          [ngModel]="formData().control.reviso"
+          (ngModelChange)="updateFormField('control.reviso', $event)"
+          name="reviso"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of puesto.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Aprobó</label>
+        <select
+          [ngModel]="formData().control.aprobo"
+          (ngModelChange)="updateFormField('control.aprobo', $event)"
+          name="control.aprobo"
+          class="w-full p-2 border rounded"
+        >
+          <option value="" disabled selected>Selecciona una opción</option>
+          @for (item of puesto.values; track $index) {
+          <option [value]="item">{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Datos control de cambios -->
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Fecha</label>
+        <input
+          type="date"
+          [ngModel]="formData().cambios.fecha"
+          (ngModelChange)="updateFormField('cambios.fecha', $event)"
+          name="fecha"
+          class="w-full p-2 border rounded"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Número</label>
+        <input
+          type="text"
+          [ngModel]="formData().cambios.numero"
+          (ngModelChange)="updateFormField('cambios.numero', $event)"
+          name="numero"
+          class="w-full p-2 border rounded"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Descripción</label>
+        <input
+          type="text"
+          [ngModel]="formData().cambios.descripcion"
+          (ngModelChange)="updateFormField('cambios.descripcion', $event)"
+          name="descripcion"
+          class="w-full p-2 border rounded"
+        />
+      </div>
+
+      <div class="flex justify-end col-span-2 gap-2">
+        <button
+          type="button"
+          (click)="closeModal()"
+          class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded hover:bg-gray-300"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-600"
+        >
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+} @if (loading()) {
+<div class="flex items-center justify-center">
+  <span>Cargando...</span>
+</div>
+} @if (error()) {
+<div class="text-red-500">
+  {{ error() }}
+</div>
+}

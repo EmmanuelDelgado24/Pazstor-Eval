@@ -31,6 +31,8 @@ import {
 } from '@angular/forms';
 import { TableCompetencias3Component } from '../../shared/components/table-competencias3/table-competencias3.component';
 import { TableGenerales3Component } from '../../shared/components/table-generales3/table-generales3.component';
+import { Competencias3TableComponent } from "../../shared/components/competencias3-table/competencias3-table.component";
+import { Boton3ActualizarComponent } from "../../shared/components/boton3-actualizar/boton3-actualizar.component";
 
 @Component({
   selector: 'app-compras',
@@ -54,12 +56,18 @@ import { TableGenerales3Component } from '../../shared/components/table-generale
     TablaAutoridades3Component,
     TableGenerales3Component,
     ReactiveFormsModule,
-  ],
+    Competencias3TableComponent,
+    Boton3ActualizarComponent
+],
   templateUrl: './compras.component.html',
   styles: ``,
 })
 export class ComprasComponent implements OnInit {
   firebaseService = inject(FirebaseService);
+  documentId = signal<string | null>(null);
+  loading = signal(false);
+  error = signal('');
+
   form: FormGroup;
   exito: WritableSignal<boolean>;
   generalesForm: FormGroup;
@@ -222,6 +230,7 @@ export class ComprasComponent implements OnInit {
         this.onReset();
       });
   }
+
 
   ngOnInit(): void {
     initFlowbite();
